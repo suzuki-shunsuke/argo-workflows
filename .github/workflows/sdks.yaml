@@ -9,6 +9,7 @@ permissions:
 
 jobs:
   sdks:
+    timeout-minutes: 30
     name: Publish SDKs
     if: github.repository == 'argoproj/argo-workflows'
     permissions:

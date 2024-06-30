@@ -7,6 +7,7 @@ permissions:
 
 jobs:
   review:
+    timeout-minutes: 30
     if: ${{ github.actor == 'dependabot[bot]' && github.repository == 'argoproj/argo-workflows'}}
     permissions:
       pull-requests: write # for approving a PR
