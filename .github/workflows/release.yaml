@@ -21,6 +21,7 @@ permissions:
 
 jobs:
   build-linux:
+    timeout-minutes: 30
     name: Build & push linux
     if: github.repository == 'argoproj/argo-workflows'
     runs-on: ubuntu-latest
@@ -93,6 +94,7 @@ jobs:
             --tag quay.io/$image_name .
 
   build-windows:
+    timeout-minutes: 30
     name: Build & push windows
     if: github.repository == 'argoproj/argo-workflows'
     runs-on: windows-2022
@@ -142,6 +144,7 @@ jobs:
           done
 
   push-images:
+    timeout-minutes: 30
     name: Push manifest with all images
     if: github.repository == 'argoproj/argo-workflows'
     runs-on: ubuntu-latest
@@ -202,6 +205,7 @@ jobs:
           done
 
   test-images-linux-amd64:
+    timeout-minutes: 30
     name: Try pulling linux/amd64
     if: github.repository == 'argoproj/argo-workflows'
     runs-on: ubuntu-latest
@@ -240,6 +244,7 @@ jobs:
           docker pull quay.io/$image_name
 
   test-images-windows:
+    timeout-minutes: 30
     name: Try pulling windows
     if: github.repository == 'argoproj/argo-workflows'
     runs-on: windows-2022
@@ -275,6 +280,7 @@ jobs:
           done
 
   publish-release:
+    timeout-minutes: 30
     permissions:
       contents: write  # for softprops/action-gh-release to create GitHub release
     runs-on: ubuntu-latest

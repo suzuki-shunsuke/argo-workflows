@@ -11,6 +11,7 @@ permissions:
 
 jobs:
   generate_changelog:
+    timeout-minutes: 30
     name: Generate changelog
     if: github.repository == 'argoproj/argo-workflows'
     permissions:

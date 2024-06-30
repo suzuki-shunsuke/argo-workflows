@@ -14,6 +14,7 @@ jobs:
   # we do not scan images here, they're scanned here: https://app.snyk.io/org/argoproj/projects
 
   golang:
+    timeout-minutes: 30
     name: Scan Go deps
     if: github.repository == 'argoproj/argo-workflows'
     runs-on: ubuntu-latest
@@ -27,6 +28,7 @@ jobs:
           args: --severity-threshold=high
 
   node:
+    timeout-minutes: 30
     name: Scan Node deps
     if: github.repository == 'argoproj/argo-workflows'
     runs-on: ubuntu-latest
