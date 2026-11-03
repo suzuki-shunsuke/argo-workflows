@@ -24,7 +24,7 @@ jobs:
     timeout-minutes: 30
     name: Build & push linux
     if: github.repository == 'argoproj/argo-workflows'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     strategy:
       matrix:
         platform: [ linux/amd64, linux/arm64 ]
@@ -147,7 +147,7 @@ jobs:
     timeout-minutes: 30
     name: Push manifest with all images
     if: github.repository == 'argoproj/argo-workflows'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     needs: [ build-linux, build-windows ]
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
@@ -208,7 +208,7 @@ jobs:
     timeout-minutes: 30
     name: Try pulling linux/amd64
     if: github.repository == 'argoproj/argo-workflows'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     needs: [ push-images ]
     strategy:
       matrix:
@@ -283,7 +283,7 @@ jobs:
     timeout-minutes: 30
     permissions:
       contents: write  # for softprops/action-gh-release to create GitHub release
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     if: github.repository == 'argoproj/argo-workflows'
     needs: [ push-images, test-images-linux-amd64, test-images-windows ]
     env:

@@ -15,7 +15,7 @@ jobs:
     permissions:
       packages: write # for publishing packages
       contents: write  # for creating releases
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     strategy:
       matrix:
         name:
